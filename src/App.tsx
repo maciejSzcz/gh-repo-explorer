@@ -1,6 +1,6 @@
 import Search from "views/Search";
 import Providers from "providers";
-import { GlobalStyle } from "app.styled";
+import { GlobalStyle } from "./app.styled";
 
 const App = () => {
   return (

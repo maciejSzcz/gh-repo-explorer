@@ -4,7 +4,7 @@ export const request = async <T>(
   body?: Record<string, unknown> | null,
   options?: Omit<RequestInit, "body" | "method">,
 ): Promise<T> => {
-  return fetch(path, {
+  const response = await fetch(path, {
     headers: {
       "Content-Type": "application/json",
       accept: "application/vnd.github+json",
@@ -12,5 +12,11 @@ export const request = async <T>(
     method: method ?? "GET",
     body: body ? JSON.stringify(body) : undefined,
     ...options,
-  }).then((res) => res.json());
+  });
+
+  if (!response.ok) {
+    throw new Error("Something went wrong while fetching resource");
+  }
+
+  return response.json();
 };

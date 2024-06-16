@@ -1,0 +1,48 @@
+import type { Repository } from "models/Repository";
+
+export const repositoryResponse: Repository[] = [
+  {
+    id: 814263704,
+    node_id: "R_kgDOMIitmA",
+    name: "gh-repo-explorer",
+    full_name: "maciejSzcz/gh-repo-explorer",
+    private: false,
+    owner: {
+      login: "maciejSzcz",
+      id: 24374185,
+      node_id: "MDQ6VXNlcjI0Mzc0MTg1",
+      avatar_url: "https://avatars.githubusercontent.com/u/24374185?v=4",
+      gravatar_id: "",
+      url: "https://api.github.com/users/maciejSzcz",
+      type: "User",
+      site_admin: false,
+    },
+    description: null,
+    fork: false,
+    url: "https://api.github.com/repos/maciejSzcz/gh-repo-explorer",
+    created_at: "2024-06-12T16:51:35Z",
+    updated_at: "2024-06-12T17:45:34Z",
+    pushed_at: "2024-06-12T17:45:31Z",
+    homepage: null,
+    size: 36,
+    stargazers_count: 0,
+    watchers_count: 0,
+    language: "TypeScript",
+    has_issues: true,
+    has_projects: true,
+    has_downloads: true,
+    has_wiki: true,
+    has_pages: false,
+    has_discussions: false,
+    forks_count: 0,
+    archived: false,
+    disabled: false,
+    open_issues_count: 0,
+    is_template: false,
+    topics: [],
+    visibility: "public",
+    default_branch: "main",
+  },
+];
+
+export const emptyRepositoryResponse: Repository[] = [];
