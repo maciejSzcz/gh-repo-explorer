@@ -1,19 +1,10 @@
 import type { RenderHookOptions, RenderOptions } from "@testing-library/react";
 import { render, renderHook } from "@testing-library/react";
 import type { ReactElement } from "react";
-import { QueryClient } from "@tanstack/react-query";
 
 import Providers from "providers";
 
 import type { WrapperProps } from "./types";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
 
 const Wrapper = ({ children }: WrapperProps) => {
   return <Providers>{children}</Providers>;
