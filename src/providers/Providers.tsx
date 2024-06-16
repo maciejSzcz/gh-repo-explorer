@@ -4,8 +4,9 @@ import { ThemeProvider } from "styled-components";
 import { queryClient } from "requests/queryClient";
 
 const theme = {
-  colors: { blue: "#2d9cdb" },
+  colors: { blue: "#2d9cdb", darkBlue: "#135e91", lightBlue: "#8ac9ef" },
   appWidth: "340px",
+  appWidthDesktop: "500px",
 } as const;
 
 export const Providers = ({ children }: PropsWithChildren) => {

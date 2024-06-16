@@ -1,1 +1,1 @@
-export { UserList as default } from "./UserList";
+export { UserList as default, UserListPlaceholder } from "./UserList";

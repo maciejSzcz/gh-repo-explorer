@@ -12,10 +12,18 @@ interface UserListProps {
   users?: User[];
 }
 
+interface UserListPlaceholderProps {
+  text: string;
+}
+
 export const UserList = ({ userQuery, users }: UserListProps) => {
   return (
     <ListWrapper>
-      <ResultDescription>Showing users for "{userQuery}"</ResultDescription>
+      <ResultDescription aria-label="resultSummary">
+        {users && users?.length > 0
+          ? `Showing users for ${userQuery}`
+          : `No matching users for ${userQuery}`}
+      </ResultDescription>
       <List aria-label="userList">
         {users?.map((user) => (
           <ListItem key={user.id} aria-label="userListItem">
@@ -26,3 +34,9 @@ export const UserList = ({ userQuery, users }: UserListProps) => {
     </ListWrapper>
   );
 };
+
+export const UserListPlaceholder = ({ text }: UserListPlaceholderProps) => (
+  <ListWrapper>
+    <ResultDescription aria-label="resultSummary">{text}</ResultDescription>
+  </ListWrapper>
+);

@@ -1,7 +1,9 @@
 import type { Repository as RepositoryType } from "models/Repository";
+import { FaStar } from "react-icons/fa";
 import {
   RepositoryCard,
-  RepositoryDetail,
+  RepositoryStarCount,
+  RepositoryDescription,
   RepositoryHeader,
 } from "./Repository.styled";
 
@@ -17,8 +19,10 @@ export const Repository = ({ repository }: RepositoryProps) => {
   return (
     <RepositoryCard aria-label="repositoriesListItem">
       <RepositoryHeader>{repository.name}</RepositoryHeader>
-      <RepositoryDetail>{repository.stargazers_count}</RepositoryDetail>
-      <RepositoryDetail>{repository.description}</RepositoryDetail>
+      <RepositoryStarCount>
+        {repository.stargazers_count} <FaStar />
+      </RepositoryStarCount>
+      <RepositoryDescription>{repository.description}</RepositoryDescription>
     </RepositoryCard>
   );
 };

@@ -11,6 +11,10 @@ export const ListItem = styled.li`
 
 export const ListWrapper = styled.div`
   width: ${(props) => props.theme.appWidth};
+
+  @media screen and (min-width: 768px) {
+    width: ${(props) => props.theme.appWidthDesktop};
+  }
 `;
 
 export const ResultDescription = styled.p`

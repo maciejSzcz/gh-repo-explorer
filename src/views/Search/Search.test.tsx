@@ -43,6 +43,9 @@ describe("Search", () => {
     );
 
     expect(screen.queryByRole("listitem", { name: "userListItem" })).toBeNull();
+    expect(
+      screen.queryByRole("paragraph", { name: "resultSummary" }),
+    ).toHaveTextContent("No matching users for msz");
   });
 
   it("should not render users if error is returned", async () => {
@@ -60,7 +63,34 @@ describe("Search", () => {
         name: "submit",
       }),
     );
+
     expect(screen.queryByRole("list", { name: "userList" })).toBeNull();
+    expect(
+      screen.queryByRole("paragraph", { name: "resultSummary" }),
+    ).toHaveTextContent("Something went wrong");
+  });
+
+  it("should inform the user the resources are loading when fetching users", async () => {
+    server.use(
+      http.get(`/api/search/users`, async () => {
+        await delay("infinite");
+        return HttpResponse.json({}, { status: 404 });
+      }),
+    );
+    const user = userEvent.setup();
+    render(<Search />);
+
+    await user.type(screen.getByRole("textbox", { name: "username" }), "msz");
+    await user.click(
+      screen.getByRole("button", {
+        name: "submit",
+      }),
+    );
+
+    expect(screen.queryByRole("list", { name: "userList" })).toBeNull();
+    expect(
+      screen.queryByRole("paragraph", { name: "resultSummary" }),
+    ).toHaveTextContent("Loading");
   });
 
   it("should render repositories for expanded user", async () => {

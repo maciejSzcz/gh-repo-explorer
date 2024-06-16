@@ -13,7 +13,16 @@ export const Button = styled.button`
   border: 1px solid #44a7df;
 
   &:focus {
-    outline: 1px solid #fff;
-    outline-offset: -1px;
+    outline: 2px solid #000;
+    outline-offset: 0;
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.darkBlue};
+    color: #dcdcdc;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: ${(props) => props.theme.appWidthDesktop};
   }
 `;
