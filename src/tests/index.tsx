@@ -13,9 +13,7 @@ const Wrapper = ({ children }: WrapperProps) => {
 const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, "wrapper">,
-) => {
-  render(ui, { wrapper: Wrapper, ...options });
-};
+) => render(ui, { wrapper: Wrapper, ...options });
 
 const customRenderHook = <Result, Props>(
   hook: (initialProps: Props) => Result,

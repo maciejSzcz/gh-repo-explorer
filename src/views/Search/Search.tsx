@@ -39,6 +39,7 @@ export const Search = () => {
         handleChange={setUserQuery}
         placeholder="Enter username"
         aria-label="username"
+        handleSubmit={refetch}
       />
       <SubmitButton handleSubmit={refetch} buttonText="Search" />
       {renderUserList()}

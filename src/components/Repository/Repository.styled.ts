@@ -16,11 +16,7 @@ export const RepositoryCard = styled.li`
   }
 `;
 
-export const RepositoryStarCount = styled.p``;
-
 export const RepositoryDescription = styled.p`
   word-wrap: break-word;
   grid-column: 1 / 3;
 `;
-
-export const RepositoryHeader = styled.h4``;
